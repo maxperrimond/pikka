@@ -1,6 +1,6 @@
 package pikka
 
-type Value struct{
+type Value struct {
 	value interface{}
 }
 
@@ -13,7 +13,7 @@ func (value *Value) String() string {
 		return ""
 	}
 
-	str, _ :=  value.value.(string)
+	str, _ := value.value.(string)
 	return str
 }
 
@@ -72,7 +72,6 @@ func (value *Value) StringSlice() []string {
 	for i, item := range slice {
 		strings[i] = (&Value{item}).String()
 	}
-
 	return strings
 }
 
@@ -86,7 +85,6 @@ func (value *Value) IntegerSlice() []int {
 	for i, item := range slice {
 		integers[i] = (&Value{item}).Integer()
 	}
-
 	return integers
 }
 
@@ -100,7 +98,6 @@ func (value *Value) FloatSlice() []float64 {
 	for i, item := range slice {
 		floats[i] = (&Value{item}).Float()
 	}
-
 	return floats
 }
 
@@ -114,7 +111,6 @@ func (value *Value) BoolSlice() []bool {
 	for i, item := range slice {
 		bools[i] = (&Value{item}).Bool()
 	}
-
 	return bools
 }
 
@@ -128,6 +124,5 @@ func (value *Value) MapSlice() []map[string]interface{} {
 	for i, item := range slice {
 		maps[i] = (&Value{item}).Map()
 	}
-
 	return maps
 }

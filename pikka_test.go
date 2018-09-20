@@ -14,70 +14,70 @@ func TestGetFromPath(t *testing.T) {
 		data          map[string]interface{}
 	}{
 		{
-			path:          "foo",
+			path:          "key",
 			expectedValue: "foo",
 			data: map[string]interface{}{
-				"foo": "foo",
+				"key": "foo",
 			},
 		},
 		{
 			path: "",
 			expectedValue: map[string]interface{}{
-				"foo": "foo",
+				"key": "foo",
 			},
 			data: map[string]interface{}{
-				"foo": "foo",
+				"key": "foo",
 			},
 		},
 		{
-			path:          "bar",
+			path:          "key2",
 			expectedValue: nil,
 			data: map[string]interface{}{
-				"foo": "foo",
+				"key1": "foo",
 			},
 		},
 		{
-			path:          "foo.foo",
+			path:          "key.foo",
 			expectedValue: nil,
 			data: map[string]interface{}{
-				"foo": "foo",
+				"key": "foo",
 			},
 		},
 		{
-			path:          "nested.foo",
+			path:          "nested.key",
 			expectedValue: "foo",
 			data: map[string]interface{}{
 				"nested": map[string]interface{}{
-					"foo": "foo",
+					"key": "foo",
 				},
 			},
 		},
 		{
-			path:          "array.0.foo",
+			path:          "array.0.key",
 			expectedValue: "foo",
 			data: map[string]interface{}{
 				"array": []map[string]interface{}{
-					{"foo": "foo"},
+					{"key": "foo"},
 				},
 			},
 		},
 		{
-			path:          "array.#.foo",
+			path:          "array.#.key",
 			expectedValue: []interface{}{"foo", "bar"},
 			data: map[string]interface{}{
 				"array": []map[string]interface{}{
-					{"foo": "foo"},
-					{"foo": "bar"},
+					{"key": "foo"},
+					{"key": "bar"},
 				},
 			},
 		},
 		{
-			path:          "array.#.foo.#.bar",
+			path:          "array.#.key1.#.key2",
 			expectedValue: []interface{}{[]interface{}{"hello"}, []interface{}{"world"}},
 			data: map[string]interface{}{
 				"array": []map[string]interface{}{
-					{"foo": []map[string]interface{}{{"bar": "hello"}}},
-					{"foo": []map[string]interface{}{{"bar": "world"}}},
+					{"key1": []map[string]interface{}{{"key2": "hello"}}},
+					{"key1": []map[string]interface{}{{"key2": "world"}}},
 				},
 			},
 		},
