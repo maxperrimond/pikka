@@ -33,4 +33,4 @@ The path can be formatted like:
 
 `GetFromPath` returns a result wrapper (`Value`) which provides some casting getters for some types and slice of it.
 
-Note: If a field for the path is not found, it will return `nil`.
+Note: If a field for the path is not found, it will return a `nil` result.
