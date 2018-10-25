@@ -43,6 +43,10 @@ func getFromField(field string, subFields []string, v interface{}) interface{} {
 			return nil
 		}
 
+		if valueOf.Len() <= i {
+			return nil
+		}
+
 		return getFromField(nextField, newSubFields, valueOf.Index(i).Interface())
 	default:
 		return nil
